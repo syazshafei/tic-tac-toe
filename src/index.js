@@ -7,7 +7,7 @@ class Square extends React.Component {
       return (
         <button 
           className="square" 
-          onClick={() => this.props.onClick()}
+          onClick={() => this.props.onClick()}          // () => call the function after a click
         >
           {this.props.value}
         </button>
@@ -17,8 +17,8 @@ class Square extends React.Component {
   
   class Board extends React.Component {
     constructor(props) {
-      super(props);
-      this.state = {
+      super(props);                                   // need to call super() when defining constructor
+      this.state = {                                  // to remember things, use state
         squares: Array(9).fill(null),
       };
     }
@@ -26,13 +26,13 @@ class Square extends React.Component {
     handleClick(i){
       const squares = this.state.squares.slice();
       squares[i] = 'X';
-      this.setState({squares: squares});
+      this.setState({squares: squares});               //update child components inside of it
     }
     
     renderSquare(i) {
       return (
       <Square 
-        value={this.state.squares[i]}
+        value={this.state.squares[i]}                     // passing value from parent Board to child Square
         onClick={() => this.handleClick(i)}
       />
       );
