@@ -32,7 +32,7 @@ class Square extends React.Component {
     renderSquare(i) {
       return (
       <Square 
-        value={this.state.squares[i]}                     // passing value from parent Board to child Square
+        value={this.state.squares[i]}                  // passing value from parent Board to child Square
         onClick={() => this.handleClick(i)}
       />
       );
